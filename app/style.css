@@ -1,0 +1,142 @@
+/* Leonida Trophy Guide — original Vice City-inspired look: deep Leonida night,
+   neon pink and cyan. No Rockstar artwork; all colour is CSS. */
+:root {
+  --bg: #0c1524;
+  --panel: #122036;
+  --panel2: #0f1b2e;
+  --line: #24365a;
+  --text: #e8eef7;
+  --muted: #9fb0c9;
+  --pink: #ff2e88;
+  --cyan: #22d3ee;
+  --gold: #f5c542;
+  --silver: #c7d0dd;
+  --bronze: #d08a4e;
+  --plat: #7dd3fc;
+  --good: #34d399;
+  --warn: #fbbf24;
+}
+* { box-sizing: border-box; }
+body {
+  font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+  margin: 0; background: var(--bg); color: var(--text);
+  line-height: 1.45;
+}
+a { color: var(--cyan); }
+h1, h2, h3 { line-height: 1.2; margin: 0 0 8px; }
+h2 { font-size: 22px; letter-spacing: .02em; }
+h2 .count { color: var(--muted); font-size: 15px; font-weight: 400; }
+.hint { color: var(--muted); margin: 0 0 14px; font-size: 14px; }
+
+.masthead {
+  display: flex; gap: 32px; justify-content: space-between; flex-wrap: wrap;
+  padding: 28px 28px 20px;
+  background: linear-gradient(120deg, #160a2e 0%, #0c1524 55%, #07293a 100%);
+  border-bottom: 3px solid var(--pink);
+}
+.kicker { color: var(--cyan); letter-spacing: .18em; font-size: 12px; font-weight: 700; margin: 0 0 6px; text-transform: uppercase; }
+.masthead h1 { font-size: 40px; margin: 0 0 8px; }
+.masthead-title { max-width: 640px; }
+.sub { color: var(--muted); margin: 0; font-size: 15px; }
+.progress { min-width: 300px; max-width: 360px; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; }
+.progress .big { font-size: 30px; font-weight: 800; }
+.progress .big .of { font-size: 18px; font-weight: 600; color: var(--muted); }
+.progress .pct { color: var(--pink); font-size: 20px; margin-left: 6px; }
+.bar { height: 12px; background: #0a1220; border-radius: 6px; margin: 10px 0 8px; overflow: hidden; border: 1px solid var(--line); }
+.bar > div { height: 100%; width: 0%; background: linear-gradient(90deg, var(--pink), var(--cyan)); transition: width .3s; }
+.grades { margin: 0; font-size: 13px; color: var(--muted); }
+.eta { margin: 6px 0 0; font-size: 12px; color: var(--muted); }
+
+.alert {
+  margin: 16px 28px 0; padding: 12px 16px; border-radius: 10px;
+  background: #3a2a05; border: 1px solid var(--warn); color: #fde68a;
+  display: flex; gap: 12px; align-items: baseline; flex-wrap: wrap; font-size: 14px;
+}
+.alert strong { color: var(--warn); }
+.alert a { color: #fde68a; }
+
+.controls {
+  display: flex; gap: 12px; flex-wrap: wrap; align-items: center;
+  padding: 16px 28px; position: sticky; top: 0; z-index: 5;
+  background: var(--bg); border-bottom: 1px solid var(--line);
+}
+.controls input[type="search"] {
+  flex: 1 1 220px; min-width: 180px; padding: 9px 12px; font-size: 15px;
+  background: var(--panel); color: var(--text); border: 1px solid var(--line); border-radius: 8px;
+}
+.chips { display: flex; gap: 6px; flex-wrap: wrap; }
+.chip {
+  padding: 7px 12px; border-radius: 999px; border: 1px solid var(--line);
+  background: var(--panel); color: var(--text); font-size: 13px; cursor: pointer;
+}
+.chip[aria-pressed="true"] { background: var(--pink); border-color: var(--pink); color: #fff; font-weight: 700; }
+.chip .n { opacity: .75; font-weight: 400; }
+.grade select, .spoiler { font-size: 14px; }
+.grade select { background: var(--panel); color: var(--text); border: 1px solid var(--line); border-radius: 8px; padding: 8px; }
+.spoiler { display: flex; gap: 6px; align-items: center; cursor: pointer; white-space: nowrap; }
+.io { display: flex; gap: 8px; align-items: center; margin-left: auto; }
+.io button, .import {
+  padding: 8px 12px; border-radius: 8px; border: 1px solid var(--line);
+  background: var(--panel); color: var(--text); font-size: 13px; cursor: pointer;
+}
+.io button:hover, .import:hover { border-color: var(--cyan); }
+.import input { display: none; }
+
+main { padding: 8px 28px 32px; max-width: 1180px; }
+section { margin-top: 26px; }
+/* Leave room for the sticky controls bar when a section or trophy is scrolled to. */
+#roadmap, #checklist, .trophy { scroll-margin-top: 140px; }
+
+.trophy {
+  border: 1px solid var(--line); border-radius: 12px; background: var(--panel);
+  margin-bottom: 10px; overflow: hidden;
+}
+.trophy.earned { border-color: var(--good); }
+.trophy.missable { border-left: 4px solid var(--warn); }
+.trophy-head { display: flex; gap: 12px; align-items: flex-start; padding: 12px 14px; cursor: pointer; }
+.trophy-head input[type="checkbox"] { width: 22px; height: 22px; margin-top: 2px; accent-color: var(--good); flex: none; cursor: pointer; }
+.grade-badge {
+  flex: none; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center;
+  font-size: 13px; font-weight: 800; color: #0c1524; margin-top: 0;
+}
+.grade-badge.platinum { background: linear-gradient(135deg, #bae6fd, var(--plat)); }
+.grade-badge.gold { background: var(--gold); }
+.grade-badge.silver { background: var(--silver); }
+.grade-badge.bronze { background: var(--bronze); }
+.trophy-main { flex: 1; min-width: 0; }
+.trophy-name { font-size: 17px; font-weight: 700; }
+.trophy-name .hidden-tag { color: var(--warn); }
+.trophy-desc { color: var(--muted); font-size: 14px; margin-top: 2px; }
+.tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 6px; }
+.tag { font-size: 11px; letter-spacing: .04em; text-transform: uppercase; padding: 2px 7px; border-radius: 999px; background: #0a1220; border: 1px solid var(--line); color: var(--muted); }
+.tag.miss { color: var(--warn); border-color: var(--warn); }
+.tag.story { color: var(--cyan); border-color: var(--cyan); }
+.guide-toggle { flex: none; background: none; border: 1px solid var(--line); color: var(--cyan); border-radius: 8px; padding: 6px 10px; font-size: 13px; cursor: pointer; margin-top: 2px; }
+.trophy.earned .trophy-name { color: var(--good); }
+.guide { border-top: 1px solid var(--line); padding: 12px 14px 14px 58px; background: var(--panel2); }
+.guide p { margin: 0 0 8px; font-size: 15px; }
+.guide .src { font-size: 13px; color: var(--muted); margin: 0; }
+.guide .src a { margin-right: 12px; }
+.empty { color: var(--muted); border: 1px dashed var(--line); border-radius: 10px; padding: 18px; text-align: center; }
+
+.stage {
+  border: 1px solid var(--line); border-radius: 12px; background: var(--panel);
+  padding: 16px 18px; margin-bottom: 12px;
+}
+.stage h3 { font-size: 18px; }
+.stage h3 .n { color: var(--pink); margin-right: 8px; }
+.stage p { margin: 0 0 10px; color: var(--muted); font-size: 14px; }
+.stage .names { font-size: 13px; line-height: 1.7; color: var(--text); }
+.stage .names b { color: var(--cyan); font-weight: 600; }
+.saverules { border: 1px solid var(--warn); border-radius: 12px; padding: 16px 18px; background: #241c07; }
+.saverules h3 { color: var(--warn); }
+.saverules ul { margin: 0; padding-left: 20px; font-size: 14px; }
+.saverules li { margin-bottom: 6px; }
+#about p { color: var(--muted); font-size: 14px; max-width: 860px; }
+#about .sources-note { font-size: 13px; }
+@media (max-width: 760px) {
+  .masthead, .controls, main { padding-left: 14px; padding-right: 14px; }
+  .masthead h1 { font-size: 30px; }
+  .guide { padding-left: 14px; }
+  .io { margin-left: 0; }
+}

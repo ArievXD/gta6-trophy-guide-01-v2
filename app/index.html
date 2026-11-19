@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leonida Trophy Guide — GTA VI · All 55 trophies</title>
+<meta name="description" content="Offline guide and tracker for all 55 Grand Theft Auto VI trophies on PlayStation 5: official names, descriptions and grades, a cited guide for each, a roadmap to the Platinum, and a tracker that saves your progress.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="masthead">
+  <div class="masthead-title">
+    <p class="kicker">Grand Theft Auto VI &middot; PlayStation 5 &middot; Leonida</p>
+    <h1>Leonida Trophy Guide</h1>
+    <p class="sub">All 55 trophies — official names, descriptions and grades, a cited guide for each, a roadmap to the Platinum, and a tracker that saves your progress. Works offline; nothing is fetched.</p>
+  </div>
+  <div class="progress" id="progressBox" aria-label="Progress">
+    <div class="big"><span id="earnedCount">0</span><span class="of"> / 55 earned</span> <span class="pct" id="earnedPct">0%</span></div>
+    <div class="bar" role="progressbar" aria-label="Trophies earned"><div id="barFill"></div></div>
+    <p class="grades" id="gradeCounts"></p>
+    <p class="eta">About 200 hours to Platinum &middot; No online trophies &middot; No difficulty trophies</p>
+  </div>
+</header>
+
+<div class="alert" id="missableAlert">
+  <strong>&#9888; 1 MISSABLE TROPHY</strong>
+  <span><strong>Positive Mental Attitude</strong> — Lucia&rsquo;s balcony meditation in Chapter 1 counts toward it and disappears after that chapter. There is no mission replay. Meditate on the balcony during Chapter 1, and keep a manual save at the start of every chapter and one before the final mission.</span>
+  <a href="#trophy-28">See the guide &darr;</a>
+</div>
+
+<section class="controls" aria-label="Find and filter trophies">
+  <input id="search" type="search" placeholder="Search a trophy or mission…" aria-label="Search trophies" autocomplete="off">
+  <div class="chips" id="kindChips" role="group" aria-label="Filter by kind"></div>
+  <label class="grade">Grade
+    <select id="grade">
+      <option value="all">All grades</option>
+      <option value="platinum">Platinum</option>
+      <option value="gold">Gold</option>
+      <option value="silver">Silver</option>
+      <option value="bronze">Bronze</option>
+    </select>
+  </label>
+  <label class="spoiler"><input id="spoiler" type="checkbox"> Hide story spoilers</label>
+  <div class="io">
+    <button id="export" type="button">Export progress</button>
+    <label class="import">Import progress <input id="import" type="file" accept="application/json"></label>
+    <button id="reset" type="button">Reset</button>
+  </div>
+</section>
+
+<main>
+  <section id="checklist" aria-label="Trophy checklist">
+    <h2>Checklist <span class="count" id="shownCount"></span></h2>
+    <p class="hint">Tick a trophy when you earn it — it stays ticked in this browser. Open a trophy&rsquo;s guide to see how to earn it and where each fact comes from.</p>
+    <div id="rows"></div>
+    <p class="empty" id="emptyNote" hidden>No trophies match this filter. There are no online trophies in this list — the whole set is single-player.</p>
+  </section>
+
+  <section id="roadmap" aria-label="Roadmap to the Platinum">
+    <h2>Roadmap to the Platinum</h2>
+    <p class="hint">Five stages, in order. Story first, then strangers, then collectibles, then the activity grinds, then money and 100%. About 200 hours in total; there are no difficulty trophies and no online trophies, so it is long, not hard.</p>
+    <div id="stages"></div>
+    <div class="saverules">
+      <h3>Save rules — read this before you start</h3>
+      <ul>
+        <li>There is <strong>no mission replay</strong> and no New Game Plus. Keep a <strong>manual save at the start of every chapter</strong> and one before the final mission.</li>
+        <li>The only missable trophy is <strong>Positive Mental Attitude</strong>: meditate on Lucia&rsquo;s balcony in Chapter 1, or that spot is gone.</li>
+        <li>Several trophies need Lucia and Jason together — most of the list opens up once both are playable in Chapter 2.</li>
+        <li>Robbery trophies open in Chapters 3 and 4. Cheats switch trophies (and saving) off for the session, so play clean.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="about" aria-label="About this guide">
+    <h2>About this guide</h2>
+    <p>Names, descriptions and grades are the official PlayStation list as published via Exophase and carried in full by the guides cited under each trophy. Every guide is written in our own words for this entry — a source is cited, never copied. Where no unlock method has been confirmed at launch, the guide says so instead of guessing. This guide is an original, fan-made tracker: no Rockstar Games logo, artwork or game screenshots are used.</p>
+    <p class="sources-note">Sources cited throughout: Output Lag — GTA 6 Trophy List; GTA Base — GTA 6 Trophy Guide; GTAVice.net — Trophies &amp; Achievements; GTA Vibes — GTA 6 Trophy List; GTA Vice City Hub — GTA 6 Achievements. Links open only when you follow them; the app itself fetches nothing.</p>
+  </section>
+</main>
+<script type="module" src="app.js"></script>
+</body>
+</html>
